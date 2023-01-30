@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>80</y>
+      <w>104</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>transport
+--
+-id: Integer
+-pnrNo : Integer
+-departure : String
+-destination : String
+-departDate : String
+-seatNo : Integer
+-company : String
+-price :Double
+-transportType : TransportType
+-status : ExpeditionType
+-currentPassenger : Integer
+-BUS_CAPACITY : static final int
+-PLANE_CAPACITY : static final int
+-user : User
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>80</y>
+      <w>116</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>user
+--
+-id: Integer
+-name : String
+-surname : String
+-genderType : GenderType
+-idNumber : String
+-birthday : String
+-phoneNumber : String
+-email : String
+-password : String
+-userType : UserType
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>440</y>
+      <w>252</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>UserService
+--
+createUser(UserRequest userRequest) : UserResponse 
+getAll() : UserResponse 
+getById(Integer userId) : User
+delete(int id) : void 
+update(UserUpdateRequest userUpdateRequest) : UserResponse 
+login(LoginRequest loginRequest) : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>536</y>
+      <w>252</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>UserController
+--
+getAll() : UserResponse
+create(UserRequest userRequest) : UserResponse
+delete(int id) : String 
+update(int id, UserUpdateRequest userUpdateRequest) : UserResponse
+login(LoginRequest loginRequest) : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>284</y>
+      <w>96</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>UserResponse
+--
+-id: Integer
+-name : String
+-surname : String
+-genderType : GenderType
+-idNumber : String
+-birthday : String
+-phoneNumber : String
+-email : String
+-userType : UserType</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>284</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>UserRequest
+--
+-name : String
+-surname : String
+-genderType : GenderType
+-idNumber : String
+-birthday : String
+-phoneNumber : String
+-email : String
+-password : String
+-userType : UserType
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>184</y>
+      <w>124</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>UserRepository
+--
+findByEmail(String email)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>228</y>
+      <w>252</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>UserConverter
+--
+convert(User user) : UserResponse
+convert(UserRequest userRequest, String hash) : User
+convert(List&lt;User&gt; userList) : List&lt;UserResponse&gt; 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>428</y>
+      <w>292</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>TransportService
+--
+create(TransportRequest transportRequest) : Transport
+getAll() : TransportResponse
+getById(Integer transportId) : Transport
+getAllByProvince(String destination) : TransportResponse
+getAllByDeparture(String departure) : TransportResponse
+getAllByDate(String departDate) : TransportResponse
+getTransportType(TransportType transportType) : Transport
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>524</y>
+      <w>296</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>TransportController
+--
+getAll() : &lt;List&lt;TransportResponse&gt;&gt;
+create (TransportRequest transportRequest) : Transport
+getSearchedProvince (String destination) : TransportResponse
+getSearchedDeparture (String departure) : TransportResponse
+getAllByDate (String departureDate) : TransportResponse
+getTransportType (TransportType transportType) : Transport
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>332</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>TransportResponse
+--
+-id: Integer
+-pnrNo : Integer
+-departure : String
+-destination : String
+-departDate : String
+-seatNo : Integer
+-price :Double
+-userId : Integer
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>332</y>
+      <w>92</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>TransportRequest
+--
+-pnrNo : Integer
+-departure : String
+-destination : String
+-departDate : String
+-seatNo : Integer
+-company : String
+-price :Double
+-transportType : TransportType
+-status : ExpeditionType
+-userId : Integer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>260</y>
+      <w>236</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>TransportConverter
+--
+convert (Transport transport) : TransportResponse
+convert (TransportRequest transportRequest) : Transport
+convert (List&lt;Transport&gt; transportList) : List&lt;TransportResponse&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>204</y>
+      <w>236</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>TransportRepository
+--
+findAllByUserId(int id)
+findByTransportType(TransportType transportType)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>676</x>
+      <y>96</y>
+      <w>84</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>TransportType
+--
+BUS
+PLANE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1028</x>
+      <y>80</y>
+      <w>188</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>ticket
+--
+-id : Integer 
+-user : User
+-transport : Transport
+-passenger : List&lt;Passenger&gt;
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>88</y>
+      <w>84</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>GenderType
+--
+FEMALE
+MALE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1016</x>
+      <y>408</y>
+      <w>212</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>TicketService
+--
+purchaseTicket(int userId, int transportId, List&lt;Passenger&gt; passengers) : Ticket 
+getById(Integer ticketId) : Ticket
+getAll() : TicketResponse</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1016</x>
+      <y>476</y>
+      <w>216</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>TicketController
+--
+getAll() : TicketResponse
+purchaseTicket(TicketRequest ticketRequest) : Ticket</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1132</x>
+      <y>336</y>
+      <w>92</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>TicketResponse
+--
+-id : Integer 
+-userId : Integer
+-transportId : Integer
+-passenger : List&lt;Passenger&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>336</y>
+      <w>104</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>TicketRequest
+--
+-userId : Integer
+-transportId : Integer
+-passenger : List&lt;Passenger&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>268</y>
+      <w>204</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>TicketConverter
+--
+convert(Ticket ticket) : TicketResponse
+convert(TicketRequest ticketRequest) : Ticket
+convert(List&lt;Ticket&gt; ticketList) : List&lt;TicketResponse&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>208</y>
+      <w>200</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>TicketRepository
+--
+findByUserIdAndTransportId(int userId, int transportId)
+countByUserAndTransport(User user, Transport transport)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>676</x>
+      <y>144</y>
+      <w>84</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>ExpeditionType 
+--
+ACTIVE
+CANCELED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>804</y>
+      <w>212</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>
+Excepiton
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>940</y>
+      <w>212</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>AdminException
+--
+AdminException(String message)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>848</y>
+      <w>212</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>ExceptionResponse
+--
+message : String
+httpStatus : HttpStatus</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>1068</y>
+      <w>212</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>TicketLimitException
+--
+TicketLimitException(String message)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>1024</y>
+      <w>212</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>TicketLimitException
+--
+TicketLimitException(String message)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>984</y>
+      <w>212</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>TransportException
+--
+TransportException(String message)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>268</x>
+      <y>896</y>
+      <w>212</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>UserNotFoundException
+--
+UserNotFoundException(String message)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>516</x>
+      <y>804</y>
+      <w>196</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>
+Advice
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>516</x>
+      <y>848</y>
+      <w>200</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>GlobalExceptionHandler
+--
+
+handle(UserNotFoundException exception) : ExceptionResponse
+handle(AdminException adminException) : ExceptionResponse
+handle(TicketLimitException ticketLimitException) : ExceptionResponse
+handle(TransportException transportException) : ExceptionResponse</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>652</y>
+      <w>212</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>
+Util
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>688</y>
+      <w>212</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>PasswordUtil
+--
+preparePasswordHash(String password, String salt) : String
+getSHA512SecurePassword(String passwordToHash, String salt) : String
+validatePassword(String passwordHash, String password) : boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>560</y>
+      <w>328</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>
+Configuration
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>608</y>
+      <w>332</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>RabbitMQConfiguration
+--
+-iqueueName : String
+-exchange : String
+-routingkey : String
+--
+binding(Queue queue, DirectExchange exchange) : Binding
+jsonMessageConverter() : MessageConverter
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1016</x>
+      <y>848</y>
+      <w>180</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>UserServiceTest
+--
+it_should_create() : void
+-getUser() : User
+-getUserRequest() : UserRequest
+-getUserResponse() : UserResponse</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>848</y>
+      <w>160</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>UserControllerTest
+--
+it_should_get_all_users() : void
+it_should_create() : void
+getUserRequest() : UserRequest
+getAllUserResponses() : List&lt;UserResponse&gt;
+getUserResponse(int id) : UserResponse</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>944</y>
+      <w>164</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>TransportControllerTest
+--
+it_should_get_all_transport() : void
+it_should_create() : void
+it_should_get_all_transports_by_departure() : void
+
+-getTransportRequest() : TransportRequest
+-getAllTransportResponses() : List&lt;TransportResponse&gt;
+-getTransportResponse(int id) : TransportResponse
+-getTransport(int id) : Transport</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>944</y>
+      <w>172</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>TransportServiceTest
+--
+it_should_create() : void
+-getTransportRequest() : TransportRequest
+-getTransportResponse() : TransportResponse
+-getTransport() : Transport</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>80</y>
+      <w>316</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>
+PaymentService
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>452</y>
+      <w>328</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>PaymentController
+--
+pay(PaymentRequest paymentRequest) : PaymentResponse
+getAll() : PaymentResponse
+getUserBalance(int userId) : Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>240</y>
+      <w>320</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>PaymentConverter
+--
+convert(Payment payment) : PaymentResponse
+convert(PaymentRequest paymentRequest) : Payment
+convert(List&lt;Payment&gt; paymentList) : PaymentResponse</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>116</y>
+      <w>144</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Payment
+--
+-id: Integer
+-userId: Integer
+-cardNumber: String
+-cvv: String
+-accountNumber: String
+-balance: Double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1640</x>
+      <y>116</y>
+      <w>148</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>PaymentType
+--
+CREDIT_CARD
+EFT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>184</y>
+      <w>316</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>PaymentRepository
+--
+findByUserId(int userId)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>300</y>
+      <w>136</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>PaymentRequest
+--
+-userId: Integer
+-cardNumber: String
+-cvv: String
+-accountNumber: String
+-balance: Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1640</x>
+      <y>296</y>
+      <w>152</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>PaymentResponse
+--
+-id: Integer
+-userId: Integer
+-balance: Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1472</x>
+      <y>372</y>
+      <w>324</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>PaymentService
+--
+pay(PaymentRequest paymentRequest) : PaymentResponse
+getAll() : PaymentResponse
+getBalanceByUserId(int userId) : Double
+getById(Integer paymentId) : Payment
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1476</x>
+      <y>744</y>
+      <w>124</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>
+TicketStationGateway</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1616</x>
+      <y>744</y>
+      <w>128</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>
+TicketStationEurekaServer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>132</y>
+      <w>84</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>UserType
+--
+ADMIN
+INDIVIDUAL
+CORPORATE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>852</x>
+      <y>80</y>
+      <w>84</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Passenger
+--
+-id: Integer
+-name: String
+-surname: String
+-genderType: GenderType
+-phoneNumber: String
+-email: String
+-ticket: Ticket</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>800</y>
+      <w>352</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>
+Test</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>484</x>
+      <y>132</y>
+      <w>76</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>944</x>
+      <y>120</y>
+      <w>76</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>16</y>
+      <w>392</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0;910.0;10.0;910.0;220.0;960.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>332</x>
+      <y>0</y>
+      <w>700</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0;1690.0;10.0;1690.0;230.0;1730.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>276</y>
+      <w>128</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>
+Database
+
+--
+
+
+                             ticketstation</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>452</x>
+      <y>284</y>
+      <w>68</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>UserUpdateRequest
+--
+-id : Integer
+-name : String
+-surname : String
+-phoneNumber : String
+-email : String
+-password : String
+-userType : UserType
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>764</x>
+      <y>332</y>
+      <w>92</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>TransportUpdateRequest
+--
+-id : Integer
+-pnrNo : Integer
+-departure : String
+-destination : String
+-departDate : String
+-seatNo : Integer
+-company : String
+-price :Double
+-transportType : TransportType
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>380</y>
+      <w>108</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>LoginRequest
+--
+-email : String
+-password : String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

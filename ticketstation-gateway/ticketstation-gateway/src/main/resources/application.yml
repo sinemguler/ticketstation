@@ -1,0 +1,18 @@
+---
+server:
+  port: 9090
+spring:
+  application:
+    name: ticketstation-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: ticketstation-service
+          uri: lb://ticketstation-service
+          predicates:
+            - Path=/users/**,/transport/**,/ticket/**
+        - id: payment-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/payment/**
+
