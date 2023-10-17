@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-
 @FeignClient(value = "payment-service", url = "http://localhost:8080")
 public interface PaymentServiceClient {
     @PostMapping
