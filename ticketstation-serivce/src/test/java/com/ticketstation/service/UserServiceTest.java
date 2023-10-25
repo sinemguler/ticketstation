@@ -41,7 +41,7 @@ public class UserServiceTest {
     private TicketStationEmailQueue ticketStationEmailQueue;
 
     @Test
-    void it_should_create() {
+    void itShouldCreate() {
 
         Mockito.when(userConverter.convert(Mockito.any(UserRequest.class), Mockito.anyString())).thenReturn(new User());
 
@@ -73,7 +73,7 @@ public class UserServiceTest {
     }
 
     private User getUser() {
-        return new User("test", "test", "12345678901", GenderType.MALE, "02.06.1998", "02120212012", "test@gmail.com", "hashPassword", UserType.INDIVIDUAL);
+        return new User(1,"test", "test", "12345678901", GenderType.MALE, "02.06.1998", "02120212012", "test@gmail.com", "hashPassword", UserType.INDIVIDUAL);
     }
 
     private UserRequest getUserRequest() {

@@ -2,8 +2,11 @@ package com.ticketstation.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ticketstation.model.Transport;
+import com.ticketstation.model.User;
 import com.ticketstation.model.enums.ExpeditionType;
+import com.ticketstation.model.enums.GenderType;
 import com.ticketstation.model.enums.TransportType;
+import com.ticketstation.model.enums.UserType;
 import com.ticketstation.request.TransportRequest;
 
 
@@ -27,11 +30,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.List;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(TransportController.class)
 public class TransportControllerTest {
@@ -44,7 +42,7 @@ public class TransportControllerTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    void it_should_get_all_transport() throws Exception {
+    void itShouldGetAllTransport() throws Exception {
 
         //given
         Mockito.when(transportService.getAll()).thenReturn(getAllTransportResponses());
@@ -64,7 +62,7 @@ public class TransportControllerTest {
     }
 
     @Test
-    void it_should_create() throws Exception {
+    void itShouldCreate() throws Exception {
 
         Mockito.when(transportService.create(Mockito.any(TransportRequest.class))).thenReturn(getTransport(1));
 
@@ -87,7 +85,7 @@ public class TransportControllerTest {
     }
 
     @Test
-    void it_should_get_all_transports_by_destination() throws Exception {
+    void itShouldGetAllTransportsByDestination() throws Exception {
         Mockito.when(transportService.getAllByProvince("ankara")).thenReturn(getAllTransportResponses());
 
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/transport/destination/ankara"));
@@ -102,7 +100,7 @@ public class TransportControllerTest {
     }
 
     @Test
-    void it_should_get_all_transports_by_departure() throws Exception {
+    void itShouldGetAllTransportsByDeparture() throws Exception {
         Mockito.when(transportService.getAllByDeparture("istanbul")).thenReturn(getAllTransportResponses());
 
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/transport/departure/istanbul"));
@@ -117,7 +115,7 @@ public class TransportControllerTest {
     }
 
     private Transport getTransport(int id) {
-        return new Transport(123,"istanbul", "ankara", "2020-02-02", 1, "tur",123 , TransportType.BUS, ExpeditionType.ACTIVE);
+        return new Transport(1,123,"istanbul", "ankara", "2020-02-02", 1, "tur",123 , TransportType.BUS, ExpeditionType.ACTIVE,1,new User(1,"test", "test", "12345678901", GenderType.MALE, "02.06.1998", "02120212012", "test@gmail.com", "hashPassword", UserType.INDIVIDUAL));
     }
 
     private TransportRequest getTransportRequest() {

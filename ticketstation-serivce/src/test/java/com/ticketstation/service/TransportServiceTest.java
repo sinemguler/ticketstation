@@ -4,6 +4,7 @@ import com.ticketstation.converter.TransportConverter;
 import com.ticketstation.model.Transport;
 import com.ticketstation.model.User;
 import com.ticketstation.model.enums.ExpeditionType;
+import com.ticketstation.model.enums.GenderType;
 import com.ticketstation.model.enums.TransportType;
 import com.ticketstation.model.enums.UserType;
 import com.ticketstation.repository.TransportRepository;
@@ -36,7 +37,7 @@ public class TransportServiceTest {
     private UserService userService;
 
     @Test
-    void it_should_create() {
+    void itShouldCreate() {
         User user = new User();
         user.setUserType(UserType.ADMIN);
 
@@ -76,7 +77,7 @@ public class TransportServiceTest {
     }
 
     private Transport getTransport() {
-        return new Transport(123,"istanbul", "ankara", "2020-02-02", 1, "tur",123 , TransportType.BUS, ExpeditionType.ACTIVE);
+        return new Transport(1,123,"istanbul", "ankara", "2020-02-02", 1, "tur",123 , TransportType.BUS, ExpeditionType.ACTIVE,1,new User(1,"test", "test", "12345678901", GenderType.MALE, "02.06.1998", "02120212012", "test@gmail.com", "hashPassword", UserType.INDIVIDUAL));
     }
 
 

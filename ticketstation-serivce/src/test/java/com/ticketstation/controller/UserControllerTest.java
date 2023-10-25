@@ -1,10 +1,5 @@
 package com.ticketstation.controller;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ticketstation.model.enums.GenderType;
 import com.ticketstation.model.enums.UserType;
@@ -38,7 +33,7 @@ public class UserControllerTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    void it_should_get_all_users() throws Exception {
+    void itShouldGetAllUsers() throws Exception {
 
         //given
         Mockito.when(userService.getAll()).thenReturn(getAllUserResponses());
@@ -59,7 +54,7 @@ public class UserControllerTest {
     }
 
     @Test
-    void it_should_create() throws Exception {
+    void itShouldCreate() throws Exception {
 
         Mockito.when(userService.createUser(Mockito.any(UserRequest.class))).thenReturn(getUserResponse(1));
 
